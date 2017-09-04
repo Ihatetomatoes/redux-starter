@@ -1,25 +1,50 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
+import {fetchUser} from './actions';
 
 interface Props {
-    name : string
+    name : string,
+    user: null, 
+    onFetchUser: any,
+    fetching: boolean
 }
 
 interface State {}
 
 class App extends React.Component < Props,
 State > {
+
+    componentWillMount(){
+
+    }
+
     render() {
         return (
             <div>
                 <p><strong>{this.props.name}</strong> is coming from Redux store.</p>
+                <button onClick={() => {
+                    this.props.onFetchUser();
+                }}>Fetch User</button>
+                <p>Fetching users: {`${this.props.fetching}`}</p>
             </div>
         );
     }
 }
 
 const mapStateToProps = state => {
-    return {name: state.user.name}
+    return {
+        name: state.user.name,
+        user: state.user.user,
+        fetching: state.user.fetching
+    }
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onFetchUser: () => {
+            dispatch(fetchUser())
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

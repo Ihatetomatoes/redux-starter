@@ -3,13 +3,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from './js/App';
 import {Provider} from 'react-redux';
-
-import {createStore} from 'redux';
-import rootReducer from './js/reducers';
-
-declare var window:any;
-
-const store = createStore(rootReducer, {}, typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f);
+import store from './js/stores/store'
 
 const render = Component => {
   ReactDOM.render(
