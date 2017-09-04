@@ -8,12 +8,10 @@ export const fetchUser = () => {
         fetch('https://jsonplaceholder.typicode.com/users/1')
             .then(response => response.json())
             .then(parsedJSON => {
-                setTimeout(()=>{
-                    dispatch({
-                        type: "FETCH_USER",
-                        payload: parsedJSON
-                    })
-                }, 2000)
+                dispatch({
+                    type: "FETCH_USER",
+                    payload: parsedJSON
+                })
             })
             .catch((error) => {
                 dispatch({

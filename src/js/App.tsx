@@ -4,7 +4,10 @@ import {fetchUser} from './actions';
 
 interface Props {
     name : string,
-    user: null, 
+    user: {
+        name: string,
+        username: string
+    }, 
     onFetchUser: any,
     fetching: boolean
 }
@@ -26,6 +29,9 @@ State > {
                     this.props.onFetchUser();
                 }}>Fetch User</button>
                 <p>Fetching users: {`${this.props.fetching}`}</p>
+                {
+                    this.props.user && <p>{this.props.user.name}</p>
+                }
             </div>
         );
     }
