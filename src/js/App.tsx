@@ -2,6 +2,9 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {fetchUser} from './actions';
 
+// Return a random number between 1 and 10:
+const randomNumber = (range: number)=>Math.floor((Math.random() * range) + 1);
+
 interface Props {
     name : string,
     user: {
@@ -14,23 +17,22 @@ interface Props {
 
 interface State {}
 
-class App extends React.Component < Props,
-State > {
+class App extends React.Component < Props, State > {
 
     componentWillMount(){
 
     }
 
-    render() {
+    render({name, fetching, user, onFetchUser} = this.props) {
         return (
             <div>
-                <p><strong>{this.props.name}</strong> is coming from Redux store.</p>
+                <p><strong>{name}</strong> is coming from Redux store.</p>
                 <button onClick={() => {
-                    this.props.onFetchUser();
+                    onFetchUser(randomNumber(10));
                 }}>Fetch User</button>
-                <p>Fetching users: {`${this.props.fetching}`}</p>
+                <p>Fetching users: {`${fetching}`}</p>
                 {
-                    this.props.user && <p>{this.props.user.name}</p>
+                    user && <p>{user.name}</p>
                 }
             </div>
         );
@@ -47,8 +49,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onFetchUser: () => {
-            dispatch(fetchUser())
+        onFetchUser: (id: number) => {
+            dispatch(fetchUser(id))
         }
     }
 }

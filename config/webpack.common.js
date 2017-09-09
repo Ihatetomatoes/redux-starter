@@ -22,7 +22,7 @@ module.exports = {
         rules: [
             {
                 enforce: 'pre',
-                test: /\.(tsx|ts|js)$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: [
                     {
