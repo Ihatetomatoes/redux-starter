@@ -1,3 +1,5 @@
+import * as ActionTypes from '../actions/actionTypes'
+
 const initialState = {
     user: null,
     name: "John",
@@ -11,24 +13,24 @@ const initialState = {
 // of the switch statement
 function user(state = initialState, action) {
     switch (action.type) {
-        case 'SET_NAME':
+        case ActionTypes.User.SET_NAME:
             return {
                 ...state,
                 name: action.payload
             }
-        case 'FETCH_USER':
+        case ActionTypes.API.FETCH_USER:
             return {
                 ...state,
                 fetching: true
             }
-        case 'FETCH_USER_FULLFILLED':
+        case ActionTypes.API.FETCH_USER_FULLFILLED:
             return {
                 ...state,
                 fetching: false,
                 fetched: true,
                 user: action.payload,
             }
-        case 'FETCH_USER_REJECTED':
+        case ActionTypes.API.FETCH_USER_REJECTED:
             return {
                 ...state,
                 fetching: false,

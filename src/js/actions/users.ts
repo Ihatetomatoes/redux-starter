@@ -1,5 +1,7 @@
+import * as ActionTypes from '../actions/actionTypes'
+
 export const setName = (name:string) => ({
-    type: 'SET_NAME',
+    type: ActionTypes.User.SET_NAME,
     payload: name
 })
 
@@ -15,7 +17,7 @@ export const fetchUser = (id: number) => {
         
         // First dispatch: the app state is updated to inform
         // that the API call is starting.
-        dispatch({type: "FETCH_USER"})
+        dispatch({type: ActionTypes.API.FETCH_USER})
 
         // We use fetch to make our API call
         // Fetch is promised based and will dispatch an aysncronous
@@ -28,14 +30,14 @@ export const fetchUser = (id: number) => {
                 // If successful
                 parsedJSON => {
                     dispatch({
-                        type: "FETCH_USER_FULLFILLED",
+                        type: ActionTypes.API.FETCH_USER_FULLFILLED,
                         payload: parsedJSON
                     })
                 },
                 // If there was an error
                 error => (         
                      dispatch({
-                        type: "FETCH_USER_REJECTED",
+                        type: ActionTypes.API.FETCH_USER_REJECTED,
                         payload: error
                     })
                 )  
