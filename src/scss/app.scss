@@ -1,1 +1,37 @@
 // Your app css goes here
+
+body {
+  font-size: 1.4em;
+  font-family: "Open Sans", sans-serif;
+  padding: 20px;
+}
+
+.wrapper {
+  padding: 50px;
+  background-color: #e5efff;
+  &.is-fetching {
+    background-color: #fff5e5;
+  }
+  &.data-fetched {
+    background-color: #eeffed;
+  }
+}
+
+.challenge {
+  border-top: 1px #222 solid;
+  margin-top: 70px;
+  padding-top: 30px;
+}
+
+button {
+  padding: 13px 25px;
+  border-radius: 3px;
+  border: none;
+  background-color: #d5402b;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  &:hover {
+    background-color: darken(#d5402b, 5);
+  }
+}

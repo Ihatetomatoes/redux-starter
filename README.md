@@ -5,3 +5,7 @@ Getting starter with Redux.
 
 * Webpack 3, TypeScript
 * React, Redux
+
+## Questions
+
+* fetch multiple users (eg. 10 users - action, fullfilled, rejected) 
