@@ -15,4 +15,4 @@ Getting starter with Redux.
 
 Coming soon!
 
-    [https://ihatetomatoes.net/blog/](https://ihatetomatoes.net/blog/)
+[https://ihatetomatoes.net/blog/](https://ihatetomatoes.net/blog/)
