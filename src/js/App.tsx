@@ -38,11 +38,11 @@ class App extends React.Component<Props, State> {
         <h2>1. Set Initial State</h2>
         <ul>
           <li>
-            Create Redux store with default config -{" "}
+            Create Redux store with a default config -{" "}
             <code>/stores/store.ts</code>
           </li>
         </ul>
-        <p>
+        <p className="code">
           <strong>{name}</strong> is coming from Redux store.
         </p>
         <h2>2. Click to dispatch an action</h2>
@@ -68,14 +68,13 @@ class App extends React.Component<Props, State> {
         </ul>
         <div>
           <h2>3. Set fetching to true while loading new data</h2>
-          <p>Fetching users: {`${fetching}`}</p>
+          <p className="code">Fetching users: <strong>{`${fetching}`}</strong></p>
         </div>
         {user && (
           <div>
-            <h2>4. Fetched data</h2>
-            <p>
-              <strong>{user.name}</strong> (username: {user.username}) has been
-              fetched.
+            <h2>4. Render fetched data</h2>
+            <p className="code">
+              Fetched user: <strong>{user.name}</strong>
             </p>
           </div>
         )}
@@ -114,18 +113,20 @@ class App extends React.Component<Props, State> {
                 Fetch Users
               </button>
             </p>
-            {users &&
-            users.length > 0 && (
-              <ul>
-                {users.map(user => {
-                  const { id, name, email } = user;
-                  return (
-                    <li key={id}>
-                      {name} - {email}
-                    </li>
-                  );
-                })}
-              </ul>
+            {users && users.length > 0 && (
+              <div className="code">
+                <p>Fetched Users</p>
+                  {users.map(user => {
+                    const { id, name, email } = user;
+                    return (
+                      <p>
+                        <span key={id}>
+                          <strong>{name}</strong> - {email}
+                        </span>
+                      </p>
+                    );
+                  })}
+              </div>
             )}
           </div>
         )}

@@ -3,9 +3,10 @@ Getting starter with Redux.
 
 ## What's included?
 
-* Webpack 3, TypeScript
-* React, Redux
+* Webpack 3, TypeScript, Sass
+* React, Redux, Thunk
 
-## Questions
+## How to use?
 
-* fetch multiple users (eg. 10 users - action, fullfilled, rejected) 
+    npm install
+    npm run dev

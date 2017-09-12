@@ -35,3 +35,12 @@ button {
     background-color: darken(#d5402b, 5);
   }
 }
+
+.code {
+  padding: 15px;
+  background-color: #1e1e1e;
+  color: #b1d4d4;
+  strong {
+    color: #d7ba7d
+  }
+}
